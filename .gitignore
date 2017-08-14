@@ -8,3 +8,4 @@ public/assets
 
 # Ignore application configuration
 /config/application.yml
+/config/initializers/special_clement_dev.rb
