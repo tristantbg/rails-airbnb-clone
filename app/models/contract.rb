@@ -5,7 +5,7 @@ class Contract < ApplicationRecord
   validate :cannot_work_with_yourself
   validates :employer_id, presence: true
   validates :freelancer_id, presence: true
-  validates :status, presence: true, only: ['pending', 'accepted', 'rejected']
+  validates :status, presence: true, :inclusion => { :in => ['pending', 'accepted', 'rejected'] }
   validates :start_time, presence: true
   validates :end_time, presence: true
 
