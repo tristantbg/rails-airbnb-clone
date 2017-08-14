@@ -20,8 +20,12 @@ class ContractsController < ApplicationController
 
   def update
     @contract = Contract.find(params[:id])
-    @contract.update(contract_params)
-    redirect_to contracts_path
+    if current_user.id == @contract.freelancer_id
+      @contract.update(contract_params)
+      redirect_to contracts_path
+    else
+      redirect_to contracts_path
+    end
   end
 
   private
