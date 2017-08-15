@@ -1,7 +1,15 @@
 <div class="container">
-  <div class="row">
-      <div class="col-xs-12 col-sm-4">
+  <div id="profile-infos" class="row">
+      <div class="col-col-xs-12 col-sm-4">
+        <div class="profile-image">
+          <% if current_user.profile_image %>
+            <%= image_tag current_user.profile_image %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
         <div class="card text-center">
+          <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
           <%= current_user.email %>
         </div>
       </div>
