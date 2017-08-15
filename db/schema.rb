@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 20170815101817) do
   enable_extension "plpgsql"
 
   create_table "contracts", force: :cascade do |t|
-    t.integer "employer_id"
-    t.integer "freelancer_id"
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.text "description"
     t.string "status"
     t.datetime "start_time"
     t.datetime "end_time"
