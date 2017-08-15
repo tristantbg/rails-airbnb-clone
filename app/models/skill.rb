@@ -1,6 +1,6 @@
 class Skill < ApplicationRecord
   def self.allowed_skills
-    ['Angular JS', 'Ruby', 'JavaScript']
+    ['Angular JS', 'Ruby', 'JavaScript', 'Front']
   end
 
   belongs_to :user
