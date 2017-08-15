@@ -5,5 +5,7 @@ class Skill < ApplicationRecord
 
   belongs_to :user
 
+  validates :skills, presence: true, uniqueness: true
+
   validates :name, :inclusion => { :in => self.allowed_skills }
 end
