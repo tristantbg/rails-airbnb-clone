@@ -15,3 +15,9 @@ class Contract < ApplicationRecord
     errors.add(:freelancer_id, 'You cannot work with yourself.') if employer_id == freelancer_id
   end
 end
+
+
+
+
+
+
