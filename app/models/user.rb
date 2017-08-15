@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :skills
   has_many :contracts
+  def skills
+    Skill.where(user_id: self.id)
+  end
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
