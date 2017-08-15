@@ -5,23 +5,19 @@
   <% end %>
 
 <!--   form_for -->  
-<%= form_tag(skills_path, method: :get) do %>
-  <%= label_tag 'skill' %>
-  <%= search_field_tag 'skill' %>
 
-  <%= label_tag 'address' %>
-  <%= search_field_tag 'address' %>
-
-  <%= submit_tag "Search" %>
-<% end %>
+<div class="form-group inline">
+ <%= form_tag(skills_path, method: :get, class: "form-inline") do %>
+   <%= text_field_tag 'skill', nil, placeholder: 'Skill', class: "form-control" %>
+   <%= text_field_tag 'address', nil, placeholder:'Address', class: "form-control" %>
+   <%= submit_tag "Search", class: "btn btn-default" %>
+ <% end %>
+</div>
+  
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <!-- Links -->
-    <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Contracts", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
+  
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
