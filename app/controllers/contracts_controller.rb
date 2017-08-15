@@ -8,15 +8,9 @@ class ContractsController < ApplicationController
     @contract = Contract.new
   end
 
-# QUID :
-# de freelancer_i d
-# de la valeur de statut (à set sur pending par défaut )
-# set de description grâce au formulaire de contracts/new
-
   def create
     @contract = Contract.new(contract_params)
     @contract.employer_id = current_user.id
-
 
     if @contract.save
       redirect_to contracts_path
