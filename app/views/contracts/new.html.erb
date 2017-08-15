@@ -1,2 +1,28 @@
-<h1>Contracts#new</h1>
-<p>Find me in app/views/contracts/new.html.erb</p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3">
+
+      <p> Contracts_conroller#new </p>
+
+<!--
+      <p>présenter le user avec son avatar</p
+
+      <p><%= @employer_contracts.nmme %></p>
+      <div><%= image_tag @employer_contracts.profile_image %></div>
+
+      <p>récupère employer_id (current user id) </p>
+
+      <%= @freelancer_id.nme %> -->
+
+
+      <%= simple_form_for(@contract) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description %>
+
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

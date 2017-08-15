@@ -8,9 +8,16 @@ class ContractsController < ApplicationController
     @contract = Contract.new
   end
 
+# QUID :
+# de freelancer_i d
+# de la valeur de statut (à set sur pending par défaut )
+# set de description grâce au formulaire de contracts/new
+
   def create
     @contract = Contract.new(contract_params)
     @contract.employer_id = current_user.id
+
+
     if @contract.save
       redirect_to contracts_path
     else
@@ -29,6 +36,6 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:employer_id, :freelancer_id, :status, :start_time, :end_time)
+    params.require(:contract).permit(:employer_id, :description, :freelancer_id, :status, :start_time, :end_time)
   end
 end
