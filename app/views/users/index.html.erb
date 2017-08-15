@@ -1,26 +1,27 @@
-<div class="container">
-  <div class="row">
-    <% @users.each do |user| %>
-    <% if user != current_user %>
-    <%= link_to user_path(user) do %>
-      <div class="col-xs-12 col-sm-4 col-md-3">
-        <div class="card text-center">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://3.bp.blogspot.com/-QbASW0FAHlc/VbdfXE_zehI/AAAAAAABr48/gJ8Z52I0rNE/s1600/Yearbook%2B1980s%2B%25287%2529.jpg');">
-              <div class="card-category">Popular</div>
-              <div class="card-description">
-                <h2><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h2>
-                <% user.skills.each do |skill| %>
-                  <p><%= skill.name %></p>
-                <p>TODO 350/day</p>
-                <% end %>
-              </div>
-              <a class="card-link" href="#" ></a>
-            </div>
+<div id="users-overview" class="row">
+  <% @users.each do |user| %>
+  <% if user != current_user %>
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="card m0 mb3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= user.profile_image %>');">
+      <div class="card-category">
+      <%= user.address %>
+      <h5><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h5>
+      </div>
+      <div class="card-description c10">
+        <div class="col-sm-6 pl0">
+          <% user.skills.each do |skill| %>
+          <h5 class="m0"><%= skill.name %></h5>
+          <% end %>
+        </div>
+        <div class="col-sm-6 pr0 text-right">
+          <%= user.price %>€
         </div>
       </div>
-    <% end %>
-    <% else %>
-    <% end %>
-    <% end %>
+      <a class="card-link" href="<%= user_path(user) %>" ></a>
+    </div>
   </div>
+  <% else %>
+  <!-- Not signed in -->
+  <% end %>
+  <% end %>
 </div>

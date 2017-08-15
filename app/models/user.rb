@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :contracts
 
+  scope :in_location, lambda{|location| where("lower(location) in ?", location.downcase) if location.present?}
+
   def skills
     Skill.where(user_id: self.id)
   end
