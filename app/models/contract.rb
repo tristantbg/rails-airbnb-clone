@@ -1,6 +1,5 @@
 class Contract < ApplicationRecord
-  has_one :freelancer, :class_name => "User"
-  has_one :employer, :class_name => "User"
+  belongs_to :user
 
   validate :cannot_work_with_yourself
   validates :employer_id, presence: true
