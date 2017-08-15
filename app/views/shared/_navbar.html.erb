@@ -4,6 +4,17 @@
     <%= image_tag "http://placehold.it/30x30" %>
   <% end %>
 
+<!--   form_for -->  
+<%= form_tag(skills_path, method: :get) do %>
+  <%= label_tag 'skill' %>
+  <%= search_field_tag 'skill' %>
+
+  <%= label_tag 'address' %>
+  <%= search_field_tag 'address' %>
+
+  <%= submit_tag "Search" %>
+<% end %>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
