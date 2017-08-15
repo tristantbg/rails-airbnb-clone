@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :skills
   has_many :contracts
+  def skills
+    Skill.where(user_id: self.id)
+  end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
