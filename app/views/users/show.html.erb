@@ -1,5 +1,6 @@
 <div class="container">
   <div id="profile-infos" class="row">
+      <% if user_signed_in? %>
       <div class="col-col-xs-12 col-sm-4">
         <div class="profile-image">
           <% if current_user.profile_image %>
@@ -13,5 +14,6 @@
           <%= current_user.email %>
         </div>
       </div>
+      <% end %>
   </div>
 </div>
