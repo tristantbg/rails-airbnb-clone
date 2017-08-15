@@ -1,25 +1,60 @@
-<h1>Home</h1>
 <div class="container">
   <div class="row">
     <% @users.each do |user| %>
+    <div class="col-sm-4 user-card">
+      <% if user != current_user %>
+      <%= link_to user_path(user) do %>
+      <div class="row">
+        <div class="col-sm-6 p0">
+          <img src="http://4.bp.blogspot.com/-L70oPcqYjy0/VbdfSnNyd1I/AAAAAAABr4g/_J5OeqIGjqM/s1600/Yearbook%2B1980s%2B%25284%2529.jpg" alt="profile picture" width="100%">
+        </div>
+        <div class="col-sm-6 p0">
+          <ul class="list-group">
+            <% user.skills.each do |skill| %>
+            <li class="list-group-item"><%= skill.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row lower-bar">
+        <div class="col-sm-6"><%= user.first_name %> <%= user.last_name %></div>
+        <div class="col-sm-6">TODO: price</div>
+      </div>
+      <% end %>
+      <% end %>
+      <div class="cta bg-success">Book now!</div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
     <% if user != current_user %>
+    <%= link_to users_path(user) do %>
       <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="card text-center">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.smithgallery.com/packages/easy_image_gallery/blocks/easy_image_gallery/images/placeholders/placeholder-390-316.png');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://3.bp.blogspot.com/-QbASW0FAHlc/VbdfXE_zehI/AAAAAAABr48/gJ8Z52I0rNE/s1600/Yearbook%2B1980s%2B%25287%2529.jpg');">
               <div class="card-category">Popular</div>
               <div class="card-description">
-                <h2><%= user.first_name %> <%= user.last_name %></h2>
+                <h2><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h2>
                 <% user.skills.each do |skill| %>
                   <p><%= skill.name %></p>
+                <p>TODO 350/day</p>
                 <% end %>
               </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
               <a class="card-link" href="#" ></a>
             </div>
         </div>
       </div>
+    <% end %>
     <% else %>
     <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
+
+

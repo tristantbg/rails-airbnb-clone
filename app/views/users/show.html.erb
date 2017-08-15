@@ -1,5 +1,6 @@
-<div class="container">
+<!-- <div class="container">
   <div id="profile-infos" class="row">
+      <% if user_signed_in? %>
       <div class="col-col-xs-12 col-sm-4">
         <div class="profile-image">
           <% if current_user.profile_image %>
@@ -14,5 +15,39 @@
 
         </div>
       </div>
+      <% end %>
   </div>
+</div>
+ -->
+
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <img src="" alt="">
+      <h2>Boby Ruby</h2>
+      <p>Ruby Specialist</p>
+      <a href="#" class="btn btn-primary">Book this freelance</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <h3>450€/jour</h3>
+      <p>Senior</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <h3>34</h3>
+      <p>Repositories</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <h3>Availability</h3>
+      <p>Available</p>
+    </div>
+  </div>
+
+
+
 </div>
