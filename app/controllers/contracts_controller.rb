@@ -1,6 +1,11 @@
 class ContractsController < ApplicationController
   def index
-    
+    @employer_contracts
+    @freelancer_contracts
+    if user_signed_in?
+      @employer_contracts = Contract.where(user_id: current_user.id)
+      @freelancer_contracts = Contract.where(user_id: current_user.id)
+    end
   end
 
   def new
@@ -27,6 +32,8 @@ class ContractsController < ApplicationController
   end
 
   private
+    
+  end
 
   def contract_params
     params.require(:contract).permit(:employer_id, :description, :freelancer_id, :status, :start_time, :end_time)

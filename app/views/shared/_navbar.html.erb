@@ -27,12 +27,12 @@
               <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
-          <% end %>
           <li>
-            <%= link_to contracts_path do %>
+            <%= link_to user_contracts_path(current_user) do %>
               <%= t(".profile", default: "Contracts") %>
             <% end %>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -43,18 +43,18 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <% if user_signed_in? %>
         <li>
-            <% if user_signed_in? %>
-              <%= link_to user_path(current_user) do %>
-                <%= t(".profile", default: "Profile") %>
-              <% end %>
+            <%= link_to user_path(current_user) do %>
+              <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
           <li>
-            <%= link_to contracts_path do %>
+            <%= link_to user_contracts_path(current_user) do %>
               <%= t(".profile", default: "Contracts") %>
             <% end %>
           </li>
+          <% end %>
       </ul>
     </div>
   </div>
