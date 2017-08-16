@@ -22,7 +22,7 @@
         <% if user_signed_in? %>
           <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
-          <% link_to user_session_path, "Sign in" %>
+          <%= link_to user_session_path, "Sign in" %>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
