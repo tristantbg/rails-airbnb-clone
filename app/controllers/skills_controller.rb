@@ -3,5 +3,10 @@ class SkillsController < ApplicationController
   end
 
   def show
+
   end
+
+
+
+
 end

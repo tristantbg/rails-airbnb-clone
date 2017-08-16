@@ -1,5 +1,8 @@
+Skill.destroy_all
+User.destroy_all
+
 20.times do
-  User.create(
+  User.create!(
   	first_name: Faker::Name.first_name, 
   	last_name: Faker::Name.last_name, 
   	email: Faker::Internet.email, 
@@ -11,5 +14,5 @@
 end
 
 User.all.each do |user|
-  Skill.create(name: Skill.allowed_skills.sample, user_id: user.id)
+  Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
 end

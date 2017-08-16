@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+
   def show
    @user = User.find(params[:id])
+   @skill = @user.skills.first
   end
+
   def index
       @users = User.all.in_location(params[:location])
       if params[:skill].present?
@@ -11,4 +14,5 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
   end
   end
+
 end
