@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid rgba(220, 224, 244, 0.4);
-  height: 200px;
+  height: 100px;
 }
 
 .message:last-child {
@@ -83,4 +82,11 @@
   border-radius: 50%;
   width: 80px;
   padding: 9px;
+}
+.conversation {
+  border-bottom: 1px solid rgba(220, 224, 244, 0.4);
+  border-left: 1px solid rgba(220, 224, 244, 0.4);
+}
+.answer {
+  background-color: rgb(230,230,230);
 }
