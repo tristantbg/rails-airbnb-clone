@@ -5,4 +5,11 @@ class UsersController < ApplicationController
           @users = @users.reject{ |user| Skill.find_by(user_id: user.id).name.downcase != params[:skill].downcase }
       end
   end
+
+  def show
+    @freelancer = User.find(params[:id])
+    @skills = ???
+  end
+
+
 end

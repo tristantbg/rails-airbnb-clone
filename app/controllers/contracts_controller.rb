@@ -1,4 +1,6 @@
 class ContractsController < ApplicationController
+  # before_action:
+
   def index
     if user_signed_in?
       @employer_contracts = Contract.where(user_id: current_user.id)
@@ -9,20 +11,21 @@ class ContractsController < ApplicationController
     end
   end
 
-
-end
   def new
     @contract = Contract.new
+
   end
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.employer_id = current_user.id
+    @contract.employer = current_user
+    @contract.skill = Skill.find(params[:skill_id])
+    # @contract.
 
 
 
     if @contract.save
-      redirect_to contracts_path
+      redirect_to user_contracts_path(current_user)
     else
       render :new
     end
@@ -38,7 +41,14 @@ end
 
   private
 
+
+
   def contract_params
-    params.require(:contract).permit(:employer_id, :skills_id, :description, :start_time, :end_time)
+    params.require(:contract).permit(:description, :start_time, :end_time)
   end
+
+  def set_defaut
+
+  end
+
 end
