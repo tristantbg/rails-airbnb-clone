@@ -12,12 +12,14 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
+    @skill = Skill.find(params[:skill_id])
   end
 
   def create
     @contract = Contract.new(contract_params)
     @contract.user = current_user
-    @contract.skill = Skill.find(params[:skill_id])
+    @skill = Skill.find(params[:skill_id])
+    @contract.skill = @skill
     if @contract.save
       redirect_to user_contracts_path(current_user)
     else
@@ -30,17 +32,13 @@ class ContractsController < ApplicationController
     if current_user.id == @contract.freelancer_id
       @contract.update(contract_params)
     end
-    redirect_to contracts_path
+    redirect_to user_contracts_path(current_user)
   end
 
   private
 
   def contract_params
     params.require(:contract).permit(:description, :start_time, :end_time)
-  end
-
-  def set_defaut
-
   end
 
 end
