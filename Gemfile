@@ -19,6 +19,9 @@ gem 'uglifier'
 gem "geocoder"
 gem 'faker'
 
+#Front
+gem "bootstrap-switch-rails"
+
 
 # Auth
 gem 'omniauth-facebook'

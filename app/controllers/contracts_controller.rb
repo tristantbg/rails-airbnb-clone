@@ -1,6 +1,11 @@
 class ContractsController < ApplicationController
   def index
-    
+    @employer_contracts = []
+    @freelancer_contracts = []
+    if user_signed_in?
+      @employer_contracts = Contract.where(user_id: current_user.id)
+      @freelancer_contracts = Contract.where(user_id: current_user.id)
+    end
   end
 
   def new
@@ -9,8 +14,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.employer_id = current_user.id
-    
     if @contract.save
       redirect_to contracts_path
     else

@@ -1,31 +1,10 @@
-<!-- <div class="container">
-  <div id="profile-infos" class="row">
-      <% if user_signed_in? %>
-      <div class="col-col-xs-12 col-sm-4">
-        <div class="profile-image">
-          <% if current_user.profile_image %>
-            <%= image_tag current_user.profile_image %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-8">
-        <div class="card text-center">
-          <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-          <%= current_user.email %>
-
-        </div>
-      </div>
-      <% end %>
-  </div>
-</div>
- -->
  <div class="grid text-center">
     <div class="card rectangle-left">
       <div class="card-content">
         <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3946334.jpg" alt="" height="150">
         <h2>Boby Ruby</h2>
         <p>Ruby Specialist</p>
-        <a href="#" class="btn btn-primary btn-lg">Book this freelance</a>
+        <%= link_to 'Book this freelance', new_user_contract_path(@user), class: "btn btn-primary" %>
       </div>
     </div>
     <div class="card">
@@ -55,3 +34,4 @@
       </div>
     </div>
   </div>
+
