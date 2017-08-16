@@ -56,17 +56,21 @@
   font-weight: bold;
   margin-right: 40px;
 }
-
-.status.accepted {
-  color: #04A366;
+.message-status div.bootstrap-switch {
+  border-radius: 13px;
+  border: none;
+  background-color: rgb(230,230,230);
+  margin-right: 20px;
 }
-
-.status.declined {
-  color: red;
+.message-status .bootstrap-switch-label {
+  background-color: rgba(255,255,255,0);
+}
+.message-status .bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background-color: $gray;
 }
 
 .status.pending {
-  color: $light-gray;
+  color: rgb(230,230,230);
 }
 
 .avatar-large {
