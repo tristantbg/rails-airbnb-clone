@@ -1,31 +1,30 @@
- <div class="grid text-center">
-    <div class="card rectangle-left">
+ <div class="grid pt3">
+    <div class="box rectangle-left">
       <div class="card-content">
-        <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3946334.jpg" alt="" height="150">
+        <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3946334.jpg" alt="" width="100%">
         <h2>Boby Ruby</h2>
         <p>Ruby Specialist</p>
-        <%= link_to 'Book this freelance', new_user_contract_path(@user), class: "btn btn-primary" %>
       </div>
     </div>
-    <div class="card">
+    <div class="box text-center ">
       <div class="card-content">
         <h3>34</h3>
         <p>Repositories</p>
       </div>
     </div>
-    <div class="card">
+    <div class="box text-center ">
       <div class="card-content">
-        <h3>350/jour</h3>
-        <p>Senior</p>
+        <h3>Senior</h3>
+        <p>450/Day</p>
       </div>
     </div>
-    <div class="card">
+    <div class="box text-center ">
       <div class="card-content">
-        <h3>Availability</h3>
-        <p>Available</p>
+        <h3>Available</h3>
+        <%= link_to 'Book this freelance', new_user_contract_path(@user), class: "btn btn-primary" %>
       </div>
     </div>
-    <div class="card rectangle-bottom">
+    <div class="box rectangle-bottom text-center ">
       <div class="card-content">
         <p>Description</p>
         <p class="text-justify">
