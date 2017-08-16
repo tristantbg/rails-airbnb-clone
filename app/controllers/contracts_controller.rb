@@ -1,7 +1,6 @@
 class ContractsController < ApplicationController
   def index
-    @employer_contracts = Contract.where(employer_id: current_user.id)
-    @freelancer_contracts = Contract.where(freelancer_id: current_user.id)
+    
   end
 
   def new
@@ -11,7 +10,11 @@ class ContractsController < ApplicationController
   def create
     @contract = Contract.new(contract_params)
     @contract.employer_id = current_user.id
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 742bddd183b8ccf8c14a46775dd0bce659904fcb
     if @contract.save
       redirect_to contracts_path
     else
