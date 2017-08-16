@@ -5,16 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_many :contracts
+  has_many :skills
 
   scope :in_location, lambda{ |location| where("lower(location) in ?", location.downcase) if location.present? }
 
-  def skills
-    Skill.where(user_id: self.id)
-  end
-
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

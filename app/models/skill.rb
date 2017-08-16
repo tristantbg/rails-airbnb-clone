@@ -1,9 +1,11 @@
 class Skill < ApplicationRecord
   def self.allowed_skills
-    ['Angular JS', 'Ruby', 'JavaScript']
+    ['Angular JS', 'Ruby', 'JavaScript', 'Front', 'Rails']
   end
 
   belongs_to :user
+
+  validates :skills, presence: true, uniqueness: true
 
   validates :name, :inclusion => { :in => self.allowed_skills }
 end
