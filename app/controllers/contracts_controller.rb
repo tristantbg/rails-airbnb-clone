@@ -13,17 +13,12 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
-
   end
 
   def create
     @contract = Contract.new(contract_params)
     @contract.employer = current_user
     @contract.skill = Skill.find(params[:skill_id])
-    # @contract.
-
-
-
     if @contract.save
       redirect_to user_contracts_path(current_user)
     else
@@ -40,8 +35,6 @@ class ContractsController < ApplicationController
   end
 
   private
-
-
 
   def contract_params
     params.require(:contract).permit(:description, :start_time, :end_time)

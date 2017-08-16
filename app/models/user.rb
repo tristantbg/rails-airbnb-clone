@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :contracts
   has_many :skills
 
-  scope :in_location, lambda{|location| where("lower(location) in ?", location.downcase) if location.present?}
+  scope :in_location, lambda{ |location| where("lower(location) in ?", location.downcase) if location.present? }
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
