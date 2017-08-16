@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   def index
-    
+
   end
 
   def new
@@ -10,11 +10,11 @@ class ContractsController < ApplicationController
   def create
     @contract = Contract.new(contract_params)
     @contract.employer_id = current_user.id
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 742bddd183b8ccf8c14a46775dd0bce659904fcb
+    raise
+
+
+
     if @contract.save
       redirect_to contracts_path
     else
@@ -33,6 +33,6 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:employer_id, :description, :freelancer_id, :status, :start_time, :end_time)
+    params.require(:contract).permit(:employer_id, :skills_id, :description, :start_time, :end_time)
   end
 end

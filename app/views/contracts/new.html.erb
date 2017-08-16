@@ -4,21 +4,12 @@
 
       <p> Contracts_conroller#new </p>
 
-<!--
-      <p>présenter le user avec son avatar</p
-
-      <p><%= @employer_contracts.nmme %></p>
-      <div><%= image_tag @employer_contracts.profile_image %></div>
-
-      <p>récupère employer_id (current user id) </p>
-
-      <%= @freelancer_id.nme %> -->
-
 
       <%= simple_form_for(@contract) do |f| %>
         <%= f.error_notification %>
         <%= f.input :description %>
-
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
         <%= f.button :submit %>
       <% end %>
     </div>
