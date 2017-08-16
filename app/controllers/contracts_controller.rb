@@ -11,8 +11,6 @@ class ContractsController < ApplicationController
     @contract = Contract.new(contract_params)
     @contract.employer_id = current_user.id
 
-    raise
-
 
 
     if @contract.save
