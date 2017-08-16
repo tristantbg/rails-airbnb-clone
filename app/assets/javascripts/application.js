@@ -5,7 +5,6 @@
 //= require_tree .
 
 $("[name='freelance-response']").bootstrapSwitch({
-    size: 'small',
     onText: '<i class="fa fa-check"></i>',
     offText: '<i class="fa fa-remove"></i>',
     labelText: '<i class="fa fa-question"></i>'
