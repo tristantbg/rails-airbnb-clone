@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170815203008) do
     t.integer "user_id"
     t.integer "skill_id"
     t.text "description"
-    t.string "status"
+    t.boolean "status"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false

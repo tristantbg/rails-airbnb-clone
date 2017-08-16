@@ -4,7 +4,7 @@ class CreateContracts < ActiveRecord::Migration[5.1]
       t.integer :user_id, foreign_key: true
       t.integer :skill_id, foreign_key: true
       t.text :description
-      t.string :status
+      t.boolean :status
       t.datetime :start_time
       t.datetime :end_time
 
