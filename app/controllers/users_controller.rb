@@ -6,9 +6,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.in_location(params[:location])
+    @users = User.all
+    if params[:address].present?
+      @users = @users.reject{ |user| user.address.downcase != params[:address].downcase }
+    end
     if params[:skill].present?
-      @users = @users.reject{ |user| Skill.find_by(user_id: user.id).name.downcase != params[:skill].downcase }
+      @users = @users.reject{ |user| user.skills.first.name.downcase != params[:skill].downcase }
     end
   end
 
