@@ -2,26 +2,28 @@
     <div class="box rectangle-left">
       <div class="card-content">
         <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3946334.jpg" alt="" width="100%">
-        <h2>Boby Ruby</h2>
-        <p>Ruby Specialist</p>
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <p><%= @user.skills.first.name %></p>
       </div>
     </div>
     <div class="box text-center ">
       <div class="card-content">
-        <h3>34</h3>
+        <h3><%= rand(1..50) %></h3>
         <p>Repositories</p>
       </div>
     </div>
     <div class="box text-center ">
       <div class="card-content">
-        <h3>Senior</h3>
-        <p>450/Day</p>
+        <h3><%= @user.price > 300 ? 'Senior' : 'Junior' %></h3>
+        <p><%= @user.price %> / Day</p>
       </div>
     </div>
     <div class="box text-center ">
       <div class="card-content">
         <h3>Available</h3>
-        <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
+        <% unless @user == current_user %>
+          <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
     <div class="box rectangle-bottom text-center ">
