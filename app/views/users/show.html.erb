@@ -26,7 +26,9 @@
       <img src="" alt="">
       <h2>Boby Ruby</h2>
       <p>Ruby Specialist</p>
-      <%= link_to "book", new_user_contract_path(@freelancer) %>
+      <% unless @user == current_user  %>
+        <%= link_to "book", new_skill_contract_path(@skill) %>
+      <% end %>
     </div>
   </div>
 

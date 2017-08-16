@@ -1,5 +1,4 @@
 class ContractsController < ApplicationController
-  # before_action:
 
   def index
     if user_signed_in?
@@ -17,7 +16,7 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.employer = current_user
+    @contract.user = current_user
     @contract.skill = Skill.find(params[:skill_id])
     if @contract.save
       redirect_to user_contracts_path(current_user)
