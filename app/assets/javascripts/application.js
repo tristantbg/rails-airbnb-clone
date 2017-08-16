@@ -4,10 +4,15 @@
 //= require bootstrap-switch
 //= require_tree .
 
-$("[name='freelance-response']").bootstrapSwitch({size: 'mini'});
+$("[name='freelance-response']").bootstrapSwitch({
+    size: 'small',
+    onText: '<i class="fa fa-check"></i>',
+    offText: '<i class="fa fa-remove"></i>',
+    labelText: '<i class="fa fa-question"></i>'
+});
 
 $('input[name="freelance-response"]').on('switchChange.bootstrapSwitch', function(event, state) {
-  console.log(this); // DOM element
-  console.log(event); // jQuery event
-  console.log(state); // true | false
+    console.log(this); // DOM element
+    console.log(event); // jQuery event
+    console.log(state); // true | false
 });
