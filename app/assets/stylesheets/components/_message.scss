@@ -69,6 +69,12 @@
   background-color: $gray;
 }
 
+.bootstrap-switch-focused {
+  .fa.fa-question {
+    opacity: 0;
+  }
+}
+
 .status.pending {
   color: rgb(230,230,230);
 }

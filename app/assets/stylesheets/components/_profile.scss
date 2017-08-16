@@ -15,7 +15,6 @@ img {
   grid-template-columns: 400px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
   height: calc(100vh - 70px);
-  margin: 20px 30px;
 }
 .rectangle-left {
   grid-row: 1 / span 2;
