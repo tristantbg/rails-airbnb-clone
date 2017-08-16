@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-5">
-    <h1>Book <%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
+    <p>SEND A BOOK REQUEST TO</p>
+    <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
   </div>
   <div class="col-xs-12 col-sm-4">
     <%= simple_form_for [@skill, @contract] do |f| %>
