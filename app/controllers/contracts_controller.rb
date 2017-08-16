@@ -14,8 +14,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.employer_id = current_user.id
-    
     if @contract.save
       redirect_to contracts_path
     else
