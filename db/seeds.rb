@@ -36,7 +36,16 @@ User.create!(
     price: rand(100..500)
     )
 
-100.times do
+User.all.each do |user|
+  Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
+end
+
+contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
+contract.user = a
+contract.skill = b.skills.first
+contract.save!
+
+10.times do
   User.create!(
   	first_name: Faker::Name.first_name, 
   	last_name: Faker::Name.last_name, 
@@ -52,18 +61,10 @@ User.all.each do |user|
   Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
 end
 
-contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
-contract.user = a
-contract.skill = b.skills.first
-contract.save!
-
 100.times do
   contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
-  contract.user = User.all[rand(0..1)]
-  random_skill = Skill.all[rand(0..1)]
-  while random_skill.user != contract.user
-    random_skill = Skill.order("RANDOM()").first
-  end
+  contract.user = User.order("RANDOM()").first
+  random_skill = Skill.order("RANDOM()").first
   contract.skill = random_skill
   contract.save!
 end
