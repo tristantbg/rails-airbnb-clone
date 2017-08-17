@@ -1,3 +1,18 @@
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner">
+  <div class="banner-content">
+    <h1 class="m0">CONNECT BRAINS</h1>
+    <h1 class="m0">TO</h1>
+    <h1 class="m0"><span
+       class="txt-rotate"
+       data-period="3000"
+       data-rotate='[ "TEAMS", "PROJECTS", "BRAINS"]'>
+      </span>
+    </h1>
+  </div>
+</div>
+
 <div id="users-overview" class="row">
   <% @users.each do |user| %>
   <% if user != current_user %>
@@ -25,3 +40,6 @@
   <% end %>
   <% end %>
 </div>
+
+<!--
+style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');" -->
