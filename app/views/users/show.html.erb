@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container h2-size">
   <div class="row">
     <div class="col-md-4">
-      <img src="<%= @user.profile_image %>" alt="<%= @user.first_name %> <%= @user.last_name %>" width="100%">
+      <div class="user-profile-image" style="background-image: url(<%= @user.profile_image %>)">   
+      </div>
     </div>
     <div class="col-md-4">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
@@ -20,7 +21,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-offset-4 col-md-8">
       <p class="text-justify">
         I am a full-stack developer with 9 years of experience working in startups. Scratching your own itch? Working on a startup project? Lots of ideas but frustrated that you can't code them? Confused with agencies' or freelances' quotes? No clue when a developer is talking? Time to learn to code with Le Wagon with a 9-week intensive and immersive bootcamp!
       </p>
