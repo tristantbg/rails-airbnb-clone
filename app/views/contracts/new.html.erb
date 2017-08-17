@@ -2,13 +2,16 @@
   <div class="col-sm-5">
     <p>SEND A BOOK REQUEST TO</p>
     <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
+    <h2><%= @skill.name  %></h2>
+    <h2><%= @skill.user.price  %> € per Day</h2>
+
   </div>
   <div class="col-xs-12 col-sm-4">
     <%= simple_form_for [@skill, @contract] do |f| %>
     <%= f.error_notification %>
-    <%= f.input :description %>
-    <%= f.input :start_time, as: :datepicker %>
-    <%= f.input :end_time, as: :datepicker %>
+    <%= f.input :description, :placeholder => "explain your message to your brain" %>
+    <%= f.input :start_time, :as => :datepicker %>
+    <%= f.input :end_time, :as => :datepicker %>
     <%= f.button :submit %>
     <% end %>
   </div>
