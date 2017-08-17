@@ -7,11 +7,11 @@
     <%= simple_form_for [@skill, @contract] do |f| %>
     <%= f.error_notification %>
     <%= f.input :description %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <%= f.input :start_time, as: :datepicker %>
+    <%= f.input :end_time, as: :datepicker %>
     <%= f.button :submit %>
     <% end %>
   </div>
-</div> 
+</div>
 
 

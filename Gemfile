@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem "geocoder"
 gem 'faker'
+gem 'simple-form-datepicker'
+
+
 
 #Front
 gem "bootstrap-switch-rails"
