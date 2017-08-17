@@ -17,7 +17,10 @@
       <%= contract.description %>
     </div>
     <div class="message-status">
-      <input type="checkbox" value="<%= contract.status %>" name="freelance-response" data-indeterminate='true'>
+      <% check = 1 if contract.status == true %>
+      <% check = 0 if contract.status == false %>
+      <% check = "" if contract.status == nil %>
+      <input type="checkbox" value="<%= check %>" name="freelance-response" data-indeterminate='true'>
     </div>
   </div>
 </div>

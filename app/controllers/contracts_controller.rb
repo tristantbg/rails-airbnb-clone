@@ -5,7 +5,7 @@ class ContractsController < ApplicationController
       @employer_contracts = Contract.where(user_id: current_user.id)
       @freelancer_contracts = Contract.where(skill_id: current_user.skills.first.id)
     else
-      redirect_to root
+      redirect_to root_path
     end
   end
 

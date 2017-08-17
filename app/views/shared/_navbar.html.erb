@@ -1,15 +1,15 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <h1 class="m0">BRAIN2BRAIN</h1>
+  <h1 class="m0">BRAIN2BRAIN</h1>
   <% end %>
 
   <!--   Searchbar  -->
   <div id="search" class="form-group inline m0">
     <%= form_tag(users_path, method: :get, class: "form-inline") do %>
-      <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
-      <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control", value: params[:address] %>
-      <%= submit_tag "Search", class: "form-control"%>
+    <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
+    <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control", value: params[:address] %>
+    <%= submit_tag "Search", class: "form-control"%>
     <% end %>
   </div>
 
@@ -21,19 +21,21 @@
       <div class="dropdown">
         <% if user_signed_in? %>
           <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
         <% else %>
-          <%= link_to "Sign in", user_session_path %>
+          <%= link_to "Login", user_session_path %>
         <% end %>
+
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user) do %>
-              <%= t(".profile", default: "Profile") %>
+            <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
           <li>
             <%= link_to user_contracts_path(current_user) do %>
-              <%= t(".profile", default: "Contracts") %>
+            <%= t(".profile", default: "Contracts") %>
             <% end %>
           </li>
           <% end %>
@@ -49,24 +51,24 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
         <li>
-            <%= link_to user_path(current_user) do %>
-              <%= t(".profile", default: "Profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_contracts_path(current_user) do %>
-              <%= t(".profile", default: "Contracts") %>
-            <% end %>
-          </li>
+          <%= link_to user_path(current_user) do %>
+          <%= t(".profile", default: "Profile") %>
           <% end %>
+        </li>
+        <li>
+          <%= link_to user_contracts_path(current_user) do %>
+          <%= t(".profile", default: "Contracts") %>
+          <% end %>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </div>
 
 <% content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
-  <script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
+<script>
   $(document).ready(function() {
     var flat_address = $('input#address').get(0);
 
@@ -80,5 +82,5 @@
       });
     }
   });
-  </script>
+</script>
 <% end %>
