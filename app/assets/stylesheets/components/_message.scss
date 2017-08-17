@@ -34,6 +34,8 @@
   width: 50px;
   flex-shrink: 0;
   flex-grow: 0;
+  height: 50px;
+  overflow: hidden;
   img {
     width: 100%;
   }
@@ -116,6 +118,10 @@
 
 .bootstrap-switch-handle-on, .bootstrap-switch-handle-off {
   opacity: 0;
+}
+
+.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {
+  opacity: 1;
 }
 
 .bootstrap-switch .bootstrap-switch-label {
