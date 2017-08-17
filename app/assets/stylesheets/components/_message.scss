@@ -62,17 +62,22 @@
   margin-right: 20px;
 }
 .message-status .bootstrap-switch-label {
-  background-color: rgba(255,255,255,0);
+  background-color: white;
 }
 .message-status .bootstrap-switch-handle-on.bootstrap-switch-primary {
-  background-color: $gray;
+  background-color: transparent;
 }
-
-.bootstrap-switch-focused {
-  .fa.fa-question {
-    opacity: 0;
+.message-status .bootstrap-switch-handle-on.bootstrap-switch-primary .fa fa-circle {
+    color: transparent;
   }
+.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {
+  opacity: 1;
 }
+// .bootstrap-switch-focused {
+//   .fa.fa-question {
+//     opacity: 0;
+//   }
+// }
 
 .status.pending {
   color: rgb(230,230,230);
