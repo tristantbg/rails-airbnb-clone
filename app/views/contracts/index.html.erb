@@ -1,61 +1,64 @@
+<div class="row">
+<div class="col-sm-6">
 <% unless @freelancer_contracts.empty? %>
-  <h1>Received proposals</h1>
-<% end %>
-
-<% @freelancer_contracts.each do |contract| %>
-
-<div class="conversation">
-  <div class="message answer">
-    <img class="avatar-large" src="<%= current_user.profile_image %>">
-    <div class="message-name">
-      <%= link_to user_path(contract.user) do %>
-        <p class="mb0">From</p>
-        <h3 class="mt1"><%= contract.user.first_name %> <%= contract.user.last_name %></h3>
-      <% end %>
+      <h4>Received proposals</h4>
+    <% end %>
+    
+    <% @freelancer_contracts.each do |contract| %>
+    
+    
+      <div class="message">
+        <img class="thumb" src="<%= current_user.profile_image %>">
+        <div class="message-name">
+          <%= link_to user_path(contract.user) do %>
+            <p class="m0">From</p>
+            <h3 class="mt1"><%= contract.user.first_name %> <%= contract.user.last_name %></h3>
+          <% end %>
+        </div>
+        <div class="message-body">
+          <%= contract.description %>
+        </div>
+        <div class="message-status">
+          <% check = 1 if contract.status == true %>
+          <% check = 0 if contract.status == false %>
+          <% check = "" if contract.status == nil %>
+          <input type="checkbox" value="<%= check %>" name="freelance-response" data-indeterminate='true'>
+        </div>
+      </div>
+    
+    <% end %>
     </div>
-    <div class="message-body">
-      <%= contract.description %>
-    </div>
-    <div class="message-status">
-      <% check = 1 if contract.status == true %>
-      <% check = 0 if contract.status == false %>
-      <% check = "" if contract.status == nil %>
-      <input type="checkbox" value="<%= check %>" name="freelance-response" data-indeterminate='true'>
-    </div>
-  </div>
-</div>
-
-<% end %>
-
-<% unless @employer_contracts.empty? %>
-  <h1>Sent proposals</h1>
-<% end %>
-
-<% @employer_contracts.each do |contract| %>
-<% freelancer = contract.skill.user %>
-
-<div class="conversation">
-  <div class="message">
-    <img class="avatar-large" src="<%= freelancer.profile_image %>">
-    <div class="message-name">
-      <%= link_to user_path(freelancer) do %>
-        <p class="mb0">To</p>
-        <h3 class="mt1"><%= freelancer.first_name %> <%= freelancer.last_name %></h3>
-      <% end %>
-    </div>
-    <div class="message-body">
-      <%= contract.description %>
-    </div>
-    <div class="message-status">
-      <% if contract.status == nil %>
-        <span class="label label-default">Pending</span>
-      <% elsif contract.status == false %>
-        <span class="label label-error">Rejected</span>
-      <% else %>
-        <span class="label label-success">Pending</span>
-      <% end %>
-    </div>
-  </div>
-</div>
   
-<% end %>
+<div class="col-sm-6">
+<% unless @employer_contracts.empty? %>
+    <h4>Sent proposals</h4>
+  <% end %>
+  
+  <% @employer_contracts.each do |contract| %>
+  <% freelancer = contract.skill.user %>
+  
+    <div class="message">
+      <img class="thumb" src="<%= freelancer.profile_image %>">
+      <div class="message-name">
+        <%= link_to user_path(freelancer) do %>
+          <p class="mb0">To</p>
+          <h3 class="mt1"><%= freelancer.first_name %> <%= freelancer.last_name %></h3>
+        <% end %>
+      </div>
+      <div class="message-body">
+        <%= contract.description %>
+      </div>
+      <div class="message-status">
+        <% if contract.status == nil %>
+          <span class="label label-default">Pending</span>
+        <% elsif contract.status == false %>
+          <span class="label label-error">Rejected</span>
+        <% else %>
+          <span class="label label-success">Pending</span>
+        <% end %>
+      </div>
+    </div>
+    
+  <% end %>
+  </div>
+  </div>

@@ -2,3 +2,8 @@
   padding: 12rem $sides-padding;
   min-height: calc(100vh - 100px)
 }
+
+h4 {
+  text-transform: uppercase;
+  font-family: $body-font;
+}
