@@ -4,12 +4,12 @@
     <h1 class="m0">BRAIN2BRAIN</h1>
   <% end %>
 
-  <!--   Searchbar  -->  
+  <!--   Searchbar  -->
   <div id="search" class="form-group inline m0">
     <%= form_tag(users_path, method: :get, class: "form-inline") do %>
       <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control" %>
       <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control" %>
-      <%= submit_tag "Search", class: "form-control" %>
+      <%= submit_tag "Search", value="Save" class: "form-control" %>
     <% end %>
   </div>
 
@@ -63,3 +63,22 @@
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>
+  <script>
+  $(document).ready(function() {
+    var flat_address = $('input#address').get(0);
+
+    if (flat_address) {
+
+      var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
+      google.maps.event.addDomListener(flat_address, 'keydown', function(e) {
+        if (e.keyCode == 13) {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+  });
+  </script>
+<% end %>
