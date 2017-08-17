@@ -3,22 +3,22 @@
       <div class="card-content">
         <img src="<%= @user.profile_image %>" alt="<%= @user.first_name %> <%= @user.last_name %>" width="100%">
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <p><%= @user.skills.first.name %></p>
+        <strong><%= @user.skills.first.name %></strong>
       </div>
     </div>
-    <div class="box text-center ">
+    <div class="box text-center square">
       <div class="card-content">
         <h3><%= rand(1..50) %></h3>
         <p>Repositories</p>
       </div>
     </div>
-    <div class="box text-center ">
+    <div class="box text-center square">
       <div class="card-content">
         <h3><%= @user.price > 300 ? 'Senior' : 'Junior' %></h3>
         <p><%= @user.price %> / Day</p>
       </div>
     </div>
-    <div class="box text-center ">
+    <div class="box text-center square">
       <div class="card-content">
         <h3>Available</h3>
         <% unless @user == current_user %>
