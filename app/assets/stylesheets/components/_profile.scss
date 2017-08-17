@@ -93,11 +93,10 @@ img {
   background-size: cover;
   background-position: center;
 }
-// .h2-size h2, h3 {
-//   margin-top: -4px;
-// }
+
 .filet {
   border: 1px solid rgb(230,230,230);
+  padding: 10px;
 }
 .kill-padding {
   padding-left: 0px; 
@@ -108,3 +107,16 @@ img {
 .padding-bottom {
   padding-bottom: 13px;
 } 
+.filet-header {
+  display: flex;
+  justify-content: space-between;
+  h2{
+    margin-top: 0px;
+  }
+  h4 {
+    margin-top: 4px;
+  }
+  .btn {
+    
+  }
+}
