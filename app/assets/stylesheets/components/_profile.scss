@@ -96,16 +96,13 @@ img {
 
 .filet {
   border: 1px solid rgb(230,230,230);
-  padding: 10px;
+  padding: 18px;
 }
 .kill-padding {
   padding-left: 0px; 
 }
 .padding-top {
-  padding-top: 18px;
-}
-.padding-bottom {
-  padding-bottom: 13px;
+  padding-top: 16px;
 } 
 .filet-header {
   display: flex;
@@ -113,10 +110,8 @@ img {
   h2{
     margin-top: 0px;
   }
-  h4 {
-    margin-top: 4px;
-  }
-  .btn {
-    
-  }
+}
+.freelance-booking h4 {
+  margin-top: 11px;
+  text-align: center;
 }
