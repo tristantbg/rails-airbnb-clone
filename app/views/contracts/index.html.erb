@@ -9,8 +9,8 @@
     <img class="avatar-large" src="<%= current_user.profile_image %>">
     <div class="message-name">
       <%= link_to user_path(contract.user) do %>
-        <p>From</p>
-        <h3><%= contract.user.first_name %> <%= contract.user.last_name %></h3>
+        <p class="mb0">From</p>
+        <h3 class="mt1"><%= contract.user.first_name %> <%= contract.user.last_name %></h3>
       <% end %>
     </div>
     <div class="message-body">
@@ -36,50 +36,22 @@
     <img class="avatar-large" src="<%= freelancer.profile_image %>">
     <div class="message-name">
       <%= link_to user_path(freelancer) do %>
-        <p>To</p>
-        <h3><%= freelancer.first_name %> <%= freelancer.last_name %></h3>
+        <p class="mb0">To</p>
+        <h3 class="mt1"><%= freelancer.first_name %> <%= freelancer.last_name %></h3>
       <% end %>
     </div>
     <div class="message-body">
       <%= contract.description %>
     </div>
     <div class="message-status">
-      <input type="checkbox" name="freelance-response" value="<%= contract.status %>" data-indeterminate='true' data-readonly='true'>
+      <% if contract.status == nil %>
+        <span class="label label-default">Pending</span>
+      <% elsif contract.status == false %>
+        <span class="label label-error">Rejected</span>
+      <% else %>
+        <span class="label label-success">Pending</span>
+      <% end %>
     </div>
-
-  </div>
-  <div class="message">
-      <img class="avatar-large" src="<%= current_user.profile_image %>">
-      <div class="message-name">
-        <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-        <p>Freelancer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Nice project</strong></p>
-        <p>
-          I'm available to join your MVC project, here is my daily charges.
-        </p>
-      </div>
-      <div class="message-status">
-        <p class="status">Tarif/jour</p>
-        <p class="price">€<%= current_user.price %></p>
-      </div> 
-  </div>
-    <div class="message">
-
-      <img class="avatar-large" src="http://1.bp.blogspot.com/-2En-sMsUuek/Vbdexzq7zDI/AAAAAAABr1A/kszsycaMqRA/s1600/Yearbook%2B1980s%2B%252814%2529.jpg">
-      <div class="message-name">
-        <h3>Bobby Ruby</h3>
-        <p>Employer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Looking for a team to build a MVC !</strong></p>
-        <p>
-        Welcome in the team !
-        </p>
-      </div>
-      <div class="message-status">
-      </div> 
   </div>
 </div>
   
