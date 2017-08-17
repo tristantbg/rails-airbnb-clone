@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
   <h1 class="m0">BRAIN2BRAIN</h1>
@@ -21,7 +21,7 @@
       <div class="dropdown">
         <% if user_signed_in? %>
           <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
         <% else %>
           <%= link_to "Login", user_session_path %>
         <% end %>
