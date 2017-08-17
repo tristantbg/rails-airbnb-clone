@@ -1,38 +1,30 @@
- <div class="grid">
-    <div class="box rectangle-left">
-      <div class="card-content">
-        <img src="<%= @user.profile_image %>" alt="<%= @user.first_name %> <%= @user.last_name %>" width="100%">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <strong><%= @user.skills.first.name %></strong>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="<%= @user.profile_image %>" alt="<%= @user.first_name %> <%= @user.last_name %>" width="100%">
     </div>
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3><%= rand(1..50) %></h3>
-        <p>Repositories</p>
-      </div>
+    <div class="col-md-4">
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <strong><%= @user.skills.first.name %></strong>
+      <h3><%= rand(1..50) %></h3>
+      <p>Repositories</p>     
     </div>
-    
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3><%= @user.price > 300 ? 'Senior' : 'Junior' %></h3>
-        <p><%= @user.price %> / Day</p>
-      </div>
-    </div>
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3>Available</h3>
-        <% unless @user == current_user %>
-          <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="box rectangle-bottom text-center ">
-      <div class="card-content">
-        <p class="text-justify">
-          I am a full-stack developer with 9 years of experience working in startups. Scratching your own itch? Working on a startup project? Lots of ideas but frustrated that you can't code them? Confused with agencies' or freelances' quotes? No clue when a developer is talking? Time to learn to code with Le Wagon with a 9-week intensive and immersive bootcamp!
-        </p>
-      </div>
+    <div class="col-md-4">
+      <h3><%= @user.price > 300 ? 'Senior' : 'Junior' %></h3>
+      <p><%= @user.price %> / Day</p>      
+      <h3>Available</h3>
+      <% unless @user == current_user %>
+        <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <p class="text-justify">
+        I am a full-stack developer with 9 years of experience working in startups. Scratching your own itch? Working on a startup project? Lots of ideas but frustrated that you can't code them? Confused with agencies' or freelances' quotes? No clue when a developer is talking? Time to learn to code with Le Wagon with a 9-week intensive and immersive bootcamp!
+      </p>
+    </div>
+  </div>
+</div>
 
