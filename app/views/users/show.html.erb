@@ -1,12 +1,12 @@
 <div class="container h2-size">
-  <div class="row">
-    <div class="col-md-4">
+  <div class="row grey">
+    <div class="col-md-4 kill-padding">
       <div class="user-profile-image" style="background-image: url(<%= @user.profile_image %>)">   
       </div>
     </div>
     <div class="col-md-4">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      <strong><%= @user.skills.first.name %></strong>
+      <h4><%= @user.skills.first.name %></h4>
       <h3><%= rand(1..50) %></h3>
       <p>Repositories</p>     
     </div>
