@@ -16,7 +16,7 @@
         <p><%= @user.price %> / Day</p>      
         <h3>Available</h3>
         <% unless @user == current_user %>
-          <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
+          <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default" %>
         <% end %>
       </div>
       
