@@ -96,12 +96,18 @@ img {
 // .h2-size h2, h3 {
 //   margin-top: -4px;
 // }
-.grey {
-  background-color: rgb(230,230,230)
+.filet {
+  border: 1px solid rgb(230,230,230);
 }
 .kill-padding {
   padding-left: 0px; 
 }
 .padding-top {
-  padding-top: 35px;
+  padding-top: 13px;
 }
+.align {
+  padding-top: 20px;
+}
+.padding-bottom {
+  padding-bottom: 120px;
+} 
