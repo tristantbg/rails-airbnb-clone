@@ -18,4 +18,16 @@ $(document).ready(function() {
             $switch.attr('class', 'target fa fa-times-circle');
         }
     });
+    $('[data-target="sent"]').click(function(event) {
+      $('.tab').removeClass('active');
+      $(this).addClass('active');
+      $("#received").hide();
+      $("#sent").show();
+    });
+    $('[data-target="received"]').click(function(event) {
+      $('.tab').removeClass('active');
+      $(this).addClass('active');
+      $("#sent").hide();
+      $("#received").show();
+    });
 });

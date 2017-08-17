@@ -52,13 +52,13 @@ User.all.each do |user|
   Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
 end
 
-contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: "I am looking for a specialist in my area to work on a great project.")
+contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
 contract.user = a
 contract.skill = b.skills.first
 contract.save!
 
 100.times do
-  contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: "I am looking for a specialist in my area to work on a great project.")
+  contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
   contract.user = User.all[rand(0..1)]
   random_skill = Skill.all[rand(0..1)]
   while random_skill.user != contract.user
