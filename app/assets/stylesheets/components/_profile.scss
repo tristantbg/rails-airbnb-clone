@@ -12,7 +12,7 @@ img {
 }
 .grid {
   display: grid;
-  grid-template-columns: 400px 1fr 1fr 1fr;
+  grid-template-columns: 500px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
   height: calc(100vh - 70px);
 }
@@ -21,9 +21,14 @@ img {
   grid-column: 1 / span 1;
   grid-row-end: -1;
 }
+.square {
+  padding-top: 40px;
+}
 .rectangle-bottom {
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
+  border-top: 1px solid rgb(204, 201, 201);
+  padding-top: 40px;
 }
 .avatar-extra-large {
   width: 120px;
