@@ -6,9 +6,9 @@
 
 $("[name='freelance-response']").bootstrapSwitch({
     size: 'small',
-    onText: '<i class="fa fa-check"></i>',
-    offText: '<i class="fa fa-remove"></i>',
-    labelText: '<i class="fa fa-question"></i>'
+    onText: '<i class=""></i>',
+    offText: '<i class="fa-circle"></i>',
+    labelText: '<i class=""></i>'
 });
 
 $('input[name="freelance-response"]').on('switchChange.bootstrapSwitch', function(event, state) {
