@@ -73,6 +73,10 @@
 .bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {
   opacity: 1;
 }
+
+.bootstrap-switch .bootstrap-switch-wrapper .bootstrap-switch-off .bootstrap-switch-small .bootstrap-switch-indeterminate .bootstrap-switch-animate {
+  background-color: white;
+}
 // .bootstrap-switch-focused {
 //   .fa.fa-question {
 //     opacity: 0;
