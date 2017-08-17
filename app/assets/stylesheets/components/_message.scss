@@ -58,34 +58,30 @@
 .message-status div.bootstrap-switch {
   border-radius: 13px;
   border: none;
-  background-color: rgb(230,230,230);
   margin-right: 20px;
-}
-.message-status .bootstrap-switch-label {
-  background-color: white;
 }
 .message-status .bootstrap-switch-handle-on.bootstrap-switch-primary {
   background-color: transparent;
 }
-.message-status .bootstrap-switch-handle-on.bootstrap-switch-primary .fa fa-circle {
-    color: transparent;
-  }
+
 .bootstrap-switch-handle-off .bootstrap-switch-default .fa fa-circle {
   color: transparent;
 }
-.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {
-  opacity: 1;
-}
-
 .message-status div.bootstrap-switch {
   background-color: white;
 }
-// .bootstrap-switch-focused {
-//   .fa.fa-question {
-//     opacity: 0;
-//   }
-// }
-
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+  background-color: white;  
+}
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+  color: transparent;
+}
+.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label {
+  padding: 0px;
+  width: 24px;
+  font-size: 21px;
+  line-height: 1.2;
+}
 .status.pending {
   color: rgb(230,230,230);
 }
