@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     if params[:address].present?
-      @users = @users.reject{ |user| user.address.downcase != params[:address].downcase }
+      @users = @users.near(params[:address], 10)
     end
     if params[:skill].present?
       @users = @users.reject{ |user| user.skills.first.name.downcase != params[:skill].downcase }
