@@ -1,37 +1,36 @@
- <div class="grid">
-    <div class="box rectangle-left">
-      <div class="card-content">
-        <img src="<%= @user.profile_image %>" alt="<%= @user.first_name %> <%= @user.last_name %>" width="100%">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <strong><%= @user.skills.first.name %></strong>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 kill-padding">
+      <div class="user-profile-image" style="background-image: url(<%= @user.profile_image %>)">   
       </div>
     </div>
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3><%= rand(1..50) %></h3>
-        <p>Repositories</p>
-      </div>
-    </div>
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3><%= @user.price > 300 ? 'Senior' : 'Junior' %></h3>
-        <p><%= @user.price %> / Day</p>
-      </div>
-    </div>
-    <div class="box text-center square">
-      <div class="card-content">
-        <h3>Available</h3>
-        <% unless @user == current_user %>
-          <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="box rectangle-bottom text-center ">
-      <div class="card-content">
-        <p class="text-justify">
+    <div class="col-lg-offset-1 col-lg-7 kill-padding">
+
+      <div class="filet">
+        <div class="filet-header">
+          <div class="freelance-info">     
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <h4><%= @user.skills.first.name %> Specialist <%= @user.price > 300 ? 'Senior' : 'Junior' %></h4>
+            <p>Daily charges : <strong><%= @user.price %> €</strong></p>
+          </div>
+          <div class="freelance-booking">   
+            <h4>Brain Available</h4>
+            <% unless @user == current_user %>
+              <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default" %>
+            <% end %>             
+          </div>
+        </div>  
+    
+        <div class="filet-body">
+          <p class="text-justify padding-top">
           I am a full-stack developer with 9 years of experience working in startups. Scratching your own itch? Working on a startup project? Lots of ideas but frustrated that you can't code them? Confused with agencies' or freelances' quotes? No clue when a developer is talking? Time to learn to code with Le Wagon with a 9-week intensive and immersive bootcamp!
-        </p>
+          </p>
+        </div>
       </div>
+      
     </div>
   </div>
+
+
+</div>
 
