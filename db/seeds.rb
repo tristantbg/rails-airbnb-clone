@@ -48,8 +48,8 @@ contract.save!
 
 100.times do
   contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: "I am looking for a specialist in my area to work on a great project.")
-  contract.user = User.order("RANDOM()").first
-  random_skill = Skill.order("RANDOM()").first
+  contract.user = User.all[rand(0..1)]
+  random_skill = Skill.all[rand(0..1)]
   while random_skill.user != contract.user
     random_skill = Skill.order("RANDOM()").first
   end

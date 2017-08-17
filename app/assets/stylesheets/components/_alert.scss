@@ -6,10 +6,17 @@
   margin: 0;
   text-align: center;
   color: white;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  top: 70px;
 }
+
 .alert-info {
   background: $green;
 }
+
 .alert-warning {
   background: $red;
 }
+
