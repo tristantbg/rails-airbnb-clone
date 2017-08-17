@@ -3,10 +3,9 @@ class ContractsController < ApplicationController
   def index
     if user_signed_in?
       @employer_contracts = Contract.where(user_id: current_user.id)
-      @freelancer_contracts = Contract.where(user_id: current_user.id)
+      @freelancer_contracts = Contract.where(skill_id: current_user.skills.first.id)
     else
-    @employer_contracts = []
-    @freelancer_contracts = []
+      redirect_to root
     end
   end
 
