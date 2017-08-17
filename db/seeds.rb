@@ -6,35 +6,35 @@ faces = ["http://2.bp.blogspot.com/-9s7b5WnLEj0/Vbde6RA5ryI/AAAAAAABr1w/XcXARhy6
 locations = ["Paris", "Bordeaux", "New York", "Toulouse", "Nantes", "Tokyo", "London"]
 
 a = User.create!(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
-    email: 'a@b.c', 
-    password: 'brains', 
-    address: locations.sample,
-    profile_image: faces.sample,
-    price: rand(100..500)
-    )
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'a@b.c',
+  password: 'brains',
+  address: locations.sample,
+  profile_image: faces.sample,
+  price: rand(100..500)
+)
 
 b = User.create!(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
-    email: 'd@e.f', 
-    password: 'brains', 
-    address: locations.sample,
-    profile_image: faces.sample,
-    price: rand(100..500)
-    )
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'd@e.f',
+  password: 'brains',
+  address: locations.sample,
+  profile_image: faces.sample,
+  price: rand(100..500)
+)
 
 User.create!(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
-    email: 'tata@tata.com', 
-    password: 'brains', 
-    address: locations.sample,
-    profile_image: faces.sample,
-    # profile_image: Faker::LoremPixel.image("200x300", false, 'people'),
-    price: rand(100..500)
-    )
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'tata@tata.com',
+  password: 'brains',
+  address: locations.sample,
+  profile_image: faces.sample,
+  # profile_image: Faker::LoremPixel.image("200x300", false, 'people'),
+  price: rand(100..500)
+)
 
 User.all.each do |user|
   Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
@@ -45,21 +45,25 @@ contract.user = a
 contract.skill = b.skills.first
 contract.save!
 
-10.times do
-  User.create!(
-  	first_name: Faker::Name.first_name, 
-  	last_name: Faker::Name.last_name, 
-  	email: Faker::Internet.email, 
-  	password: Faker::Crypto.md5, 
-  	address: locations.sample,
-    profile_image: faces.sample,
-  	price: rand(100..500)
-  	)
+def create_users(times, locations, faces)
+  times.times do
+    User.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: Faker::Crypto.md5,
+      address: locations.sample,
+      profile_image: faces.sample,
+      price: rand(100..500)
+    )
+  end
+
+  User.all.each do |user|
+    Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
+  end
 end
 
-User.all.each do |user|
-  Skill.create!(name: Skill::SKILLS.sample, user_id: user.id)
-end
+create_users(10, locations, faces)
 
 100.times do
   contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
@@ -68,3 +72,5 @@ end
   contract.skill = random_skill
   contract.save!
 end
+
+create_users(100, locations, faces)
