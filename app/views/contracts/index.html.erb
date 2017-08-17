@@ -1,3 +1,24 @@
+<% @freelancer_contracts.each do |contract| %>
+
+<div class="conversation">
+  <div class="message answer">
+    <img class="avatar-large" src="<%= current_user.profile_image %>">
+    <div class="message-name">
+      <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <p>Employer</p>
+    </div>
+    <div class="message-body">
+      <%= contract.description %>
+    </div>
+    <div class="message-status">
+      <input type="checkbox" value="<%= contract.status %>" name="freelance-response" data-indeterminate='true'>
+    </div>
+  </div>
+</div>
+  
+<% end %>
+
+<% @freelancer_contracts.each do |contract| %>
 
 <div class="conversation">
   <div class="message answer">
@@ -17,10 +38,8 @@
       <!-- <p class="status pending">Pending</p> -->
     </div>
 
-
   </div>
   <div class="message">
-
       <img class="avatar-large" src="<%= current_user.profile_image %>">
       <div class="message-name">
         <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
@@ -33,111 +52,7 @@
         </p>
       </div>
       <div class="message-status">
-        <p class="status pending">Tarif/jour</p>
-        <p class="price">€<%= current_user.price %></p>
-      </div> 
-  </div>
-    <div class="message">
-
-      <img class="avatar-large" src="http://1.bp.blogspot.com/-2En-sMsUuek/Vbdexzq7zDI/AAAAAAABr1A/kszsycaMqRA/s1600/Yearbook%2B1980s%2B%252814%2529.jpg">
-      <div class="message-name">
-        <h3>Bobby Ruby</h3>
-        <p>Employer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Looking for a team to build a MVC !</strong></p>
-        <p>
-        Welcome in the team !
-        </p>
-      </div>
-      <div class="message-status">
-      </div> 
-  </div>
-  <div class="message answer">
-    <img class="avatar-large" src="http://1.bp.blogspot.com/-2En-sMsUuek/Vbdexzq7zDI/AAAAAAABr1A/kszsycaMqRA/s1600/Yearbook%2B1980s%2B%252814%2529.jpg">
-    <div class="message-name">
-      <h3>Bobby Ruby</h3>
-      <p>Employer</p>
-    </div>
-    <div class="message-body">
-      <p><strong>Looking for a team to build a MVC !</strong></p>
-      <p>
-        I'm currently working on a new app, and I need Ruby developpers.
-      </p>
-    </div>
-    <div class="message-status">
-      <input type="checkbox" name="freelance-response" data-indeterminate='true'>
-      <!-- <p class="status pending">Pending</p> -->
-    </div>
-
-  </div>
-  <div class="message">
-
-      <img class="avatar-large" src="<%= current_user.profile_image %>">
-      <div class="message-name">
-        <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-        <p>Freelancer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Nice project</strong></p>
-        <p>
-          I'm available to join your MVC project, here is my daily charges.
-        </p>
-      </div>
-      <div class="message-status">
-        <p class="status pending">Tarif/jour</p>
-        <p class="price">€<%= current_user.price %></p>
-      </div> 
-  </div>
-    <div class="message">
-
-      <img class="avatar-large" src="http://1.bp.blogspot.com/-2En-sMsUuek/Vbdexzq7zDI/AAAAAAABr1A/kszsycaMqRA/s1600/Yearbook%2B1980s%2B%252814%2529.jpg">
-      <div class="message-name">
-        <h3>Bobby Ruby</h3>
-        <p>Employer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Looking for a team to build a MVC !</strong></p>
-        <p>
-        Welcome in the team !
-        </p>
-      </div>
-      <div class="message-status">
-      </div> 
-  </div>
-  <div class="message answer">
-    <img class="avatar-large" src="http://1.bp.blogspot.com/-2En-sMsUuek/Vbdexzq7zDI/AAAAAAABr1A/kszsycaMqRA/s1600/Yearbook%2B1980s%2B%252814%2529.jpg">
-    <div class="message-name">
-      <h3>Bobby Ruby</h3>
-      <p>Employer</p>
-    </div>
-    <div class="message-body">
-      <p><strong>Looking for a team to build a MVC !</strong></p>
-      <p>
-        I'm currently working on a new app, and I need Ruby developpers.
-      </p>
-    </div>
-    <div class="message-status">
-      <input type="checkbox" name="freelance-response" data-indeterminate='true'>
-      <!-- <p class="status pending">Pending</p> -->
-    </div>
-
-  </div>
-  <div class="message">
-
-      <img class="avatar-large" src="<%= current_user.profile_image %>">
-      <div class="message-name">
-        <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-        <p>Freelancer</p>
-      </div>
-      <div class="message-body">
-        <p><strong>Nice project</strong></p>
-        <p>
-          I'm available to join your MVC project, here is my daily charges.
-        </p>
-      </div>
-      <div class="message-status">
-        <p class="status pending">Tarif/jour</p>
+        <p class="status">Tarif/jour</p>
         <p class="price">€<%= current_user.price %></p>
       </div> 
   </div>
@@ -158,3 +73,5 @@
       </div> 
   </div>
 </div>
+  
+<% end %>
