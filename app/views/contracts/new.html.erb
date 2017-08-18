@@ -1,17 +1,32 @@
 <div class="row">
   <div class="col-sm-5">
     <p>SEND A BOOK REQUEST TO</p>
+
+   <div class="thumb">
+        <img src="<%= @skill.user.profile_image %>">
+    </div>
+
+
+
     <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
+
   </div>
   <div class="col-xs-12 col-sm-4">
     <%= simple_form_for [@skill, @contract] do |f| %>
     <%= f.error_notification %>
     <%= f.input :description %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
+    <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
     <%= f.button :submit %>
     <% end %>
   </div>
-</div> 
+</div>
 
+
+
+<% content_for(:after_js) do  %>
+    <script type="text/javascript">
+    $(".datepicker").datepicker();
+    </script>
+  <% end %>
 
