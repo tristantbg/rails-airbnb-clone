@@ -11,6 +11,7 @@ a = User.create!(
   email: 'a@b.c',
   password: 'brains',
   address: locations.sample,
+  description: Faker::Lorem.paragraph(5, true, 10),
   profile_image: faces.sample,
   price: rand(100..500)
 )
@@ -22,6 +23,7 @@ b = User.create!(
   password: 'brains',
   address: locations.sample,
   profile_image: faces.sample,
+  description: Faker::Lorem.paragraph(5, true, 10),
   price: rand(100..500)
 )
 
@@ -32,6 +34,7 @@ User.create!(
   password: 'brains',
   address: locations.sample,
   profile_image: faces.sample,
+  description: Faker::Lorem.paragraph(5, true, 10),
   # profile_image: Faker::LoremPixel.image("200x300", false, 'people'),
   price: rand(100..500)
 )
@@ -53,6 +56,7 @@ def create_users(times, locations, faces)
       email: Faker::Internet.email,
       password: Faker::Crypto.md5,
       address: locations.sample,
+      description: Faker::Lorem.paragraph(5, true, 10),
       profile_image: faces.sample,
       price: rand(100..500)
     )

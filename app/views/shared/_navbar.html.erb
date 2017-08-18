@@ -1,19 +1,10 @@
-<div class="navbar-wagon <%= yield(:navbar_class) %>">
+<div class="navbar-wagon navbar-home">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <h1 class="m0">BRAIN</h1>
-<h1 class="m0">BRAIN</h1>
-  <h1 class="m0">2</h1>
+    <h1 class="m0">BRAIN</h1>
+    <h1 class="m0">BRAIN</h1>
+    <h1 class="m0">2</h1>
   <% end %>
-
-  <!--   Searchbar  -->
-  <div id="search" class="form-group inline m0">
-    <%= form_tag(users_path, method: :get, class: "form-inline") do %>
-    <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
-    <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control", value: params[:address] %>
-    <%= submit_tag "Search", class: "form-control"%>
-    <% end %>
-  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -21,8 +12,7 @@
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+        <% if user_signed_in? %>        
           <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
           <%= link_to "Login", user_session_path %>
@@ -40,6 +30,11 @@
             <%= t(".profile", default: "Contracts") %>
             <% end %>
           </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".profile", default: "Logout") %>
+            <% end %>
+          </li>
           <% end %>
         </ul>
       </div>
@@ -52,21 +47,34 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
-        <li>
-          <%= link_to user_path(current_user) do %>
-          <%= t(".profile", default: "Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to user_contracts_path(current_user) do %>
-          <%= t(".profile", default: "Contracts") %>
-          <% end %>
-        </li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+            <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_contracts_path(current_user) do %>
+            <%= t(".profile", default: "Contracts") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".profile", default: "Logout") %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+
+<div id="search" class="form-group inline m0">
+    <%= form_tag(users_path, method: :get, class: "form-inline") do %>
+    <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
+    <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control", value: params[:address] %>
+    <%= submit_tag "Search", class: "form-control"%>
+    <% end %>
+  </div>
 
 <% content_for(:after_js) do %>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"></script>

@@ -1,19 +1,25 @@
-<%= content_for(:navbar_class, "navbar-home") %>
-
-<div class="banner">
-  <div class="banner-content">
-    <h1 class="m0">CONNECT BRAINS</h1>
-    <h1 class="m0">TO</h1>
-    <h1 class="m0"><span
-       class="txt-rotate"
-       data-period="3000"
-       data-rotate='[ "TEAMS", "PROJECTS", "BRAINS"]'>
-      </span>
-    </h1>
+<% if params[:skill].nil? && params[:address].nil? %>  
+  <div class="banner">
+    <div class="banner-content">
+      <h1 class="m0">CONNECT BRAINS</h1>
+      <h1 class="m0">TO</h1>
+      <h1 class="m0"><span
+         class="txt-rotate"
+         data-period="3000"
+         data-rotate='["TEAMS", "PROJECTS", "BRAINS"]'>
+        </span>
+      </h1>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div id="users-overview" class="row">
+  <div class="row text-center">
+    <% if @users.empty? %>
+      <h4>No results found.</h4>
+      <h4>Please broaden your search.</h4>
+    <% end %>
+  </div>
   <% @users.each do |user| %>
   <% if user != current_user %>
   <div class="col-xs-12 col-sm-4 col-md-3">
@@ -24,9 +30,7 @@
       </div>
       <div class="card-description c10">
         <div class="col-sm-6 pl0">
-          <% user.skills.each do |skill| %>
-          <h5 class="m0"><%= skill.name %></h5>
-          <% end %>
+          <h5 class="m0"><%= user.skills.first.name %></h5>
         </div>
         <div class="col-sm-6 pr0 text-right">
           <%= user.price %>€
@@ -40,6 +44,3 @@
   <% end %>
   <% end %>
 </div>
-
-<!--
-style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');" -->
