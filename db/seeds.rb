@@ -69,7 +69,7 @@ end
 
 create_users(10, locations, faces)
 
-100.times do
+300.times do
   contract = Contract.new(start_time: Date.today(), end_time: Date.today(), description: Faker::Lorem.paragraph(2, true, 4))
   contract.user = User.order("RANDOM()").first
   random_skill = Skill.order("RANDOM()").first
