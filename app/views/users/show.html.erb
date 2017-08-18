@@ -15,23 +15,30 @@
           <div class="freelance-booking">
 
             <% if @user == current_user %>
-              <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
-            <% else %>
-              <h4>Brain Available</h4>
-              <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default" %>
+            <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
+            <% elsif user_signed_in %>
+            <h4>Brain Available</h4>
+            <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default", "data-toggle": "modal", "data-target": ".bs-example-modal-lg" %>
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  ...
+                </div>
+              </div>
+            </div>
             <% end %>
           </div>
         </div>
 
         <div class="filet-body my4">
           <p class="text-justify padding-top">
-          <%= @user.description %>
+            <%= @user.description %>
           </p>
         </div>
-  <div class="row">
-    <div class="px2"><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&sensor=false&maptype=roadmap&markers=color:red|#{@user.address}", class: "map-large", width: "100%" %>
-    </div>
-  </div>
+        <div class="row">
+          <div class="px2"><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&sensor=false&maptype=roadmap&markers=color:red|#{@user.address}", class: "map-large", width: "100%" %>
+          </div>
+        </div>
       </div>
     </div>
-   </div>
+  </div>

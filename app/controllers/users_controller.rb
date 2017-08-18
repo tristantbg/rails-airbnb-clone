@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
-    @skill = @user.skills.first
+    if user_signed_in?
+      @user = User.find(params[:id])
+      @skill = @user.skills.first
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def index

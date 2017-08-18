@@ -74,6 +74,7 @@ create_users(10, locations, faces)
   contract.user = User.order("RANDOM()").first
   random_skill = Skill.order("RANDOM()").first
   contract.skill = random_skill
+  contract.status = [0,1,nil].sample
   contract.save!
 end
 

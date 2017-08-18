@@ -5,7 +5,6 @@
 //= require banner
 //= require bootstrap-datepicker
 //= require_tree .
-
 $(document).ready(function() {
     $("[name='freelance-response']").bootstrapSwitch({
         size: 'small',
@@ -33,7 +32,6 @@ $(document).ready(function() {
         $("#sent").hide();
         $("#received").show();
     });
-
     $search = $('#search');
     $users = $("#users-overview");
     $search.keypress(function(e) {
@@ -41,7 +39,9 @@ $(document).ready(function() {
             $(this).closest('form').submit();
         }
     });
-    if ($users.length > 0) {
+    if ($users.length > 0 && $(".banner-content").length === 0) {
+        $search.addClass('visible');
+    } else if ($users.length > 0) {
         $(window).scroll(function(event) {
             var scrollTop = $(window).scrollTop();
             var usersTop = $users.offset().top;
@@ -51,8 +51,5 @@ $(document).ready(function() {
                 $search.removeClass('visible');
             }
         });
-    } 
-    // else {
-    //     $search.addClass('visible');
-    // }
+    }
 });

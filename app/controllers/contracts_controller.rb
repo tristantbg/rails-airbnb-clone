@@ -16,8 +16,8 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.start_time = Date.strptime(contract_params[:start_time], "%m/%e/%Y")
-    @contract.end_time = Date.strptime(contract_params[:end_time], "%m/%e/%Y")
+    @contract.start_time = Date.strptime(contract_params[:start_time], "%m/%d/%Y")
+    @contract.end_time = Date.strptime(contract_params[:end_time], "%m/%d/%Y")
     @contract.user = current_user
     @skill = Skill.find(params[:skill_id])
     @contract.skill = @skill
