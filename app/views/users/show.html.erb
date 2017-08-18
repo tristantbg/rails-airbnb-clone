@@ -11,13 +11,14 @@
           <div class="freelance-info">
             <h2><%= @user.first_name %> <%= @user.last_name %></h2>
             <h4><%= @user.skills.first.name %> Specialist <%= @user.price > 300 ? 'Senior' : 'Junior' %></h4>
-            <p>Daily charges : <strong><%= @user.price %> €</strong></p>
+            <p>From <strong><%= @user.price %> €</strong> / day</p>
           </div>
           <div class="freelance-booking">
-            <h4>Brain Available</h4>
+
             <% if @user == current_user %>
               <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
             <% else %>
+              <h4>Brain Available</h4>
               <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default" %>
             <% end %>
           </div>
