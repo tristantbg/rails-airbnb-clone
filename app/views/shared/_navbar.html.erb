@@ -1,10 +1,17 @@
 <div class="navbar-wagon navbar-home">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <h1 class="m0">BRAIN</h1>
-    <h1 class="m0">BRAIN</h1>
-    <h1 class="m0">2</h1>
+  <%= link_to root_path do %>
+    <%= image_tag "logo-brain.svg", class: "brand" %>
   <% end %>
+
+  <!--   Searchbar  -->
+  <div id="search" class="form-group inline m0">
+    <%= form_tag(users_path, method: :get, class: "form-inline") do %>
+    <%= text_field_tag 'skill', nil, placeholder: 'Which skill?', class: "form-control", value: params[:skill] %>
+    <%= text_field_tag 'address', nil, placeholder:'Where?', class: "form-control", value: params[:address] %>
+    <%= submit_tag "Search", class: "form-control"%>
+    <% end %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
