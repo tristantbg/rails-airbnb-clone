@@ -1,21 +1,27 @@
-<div class="row">
-  <div class="col-sm-5">
-    <div class="new-profile-image" style="background-image: url(<%= @skill.user.profile_image %>)">
-      <p>SEND A BOOK REQUEST TO</p>
-      <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
-      <h2><%= @skill.name  %></h2>
-      <h2><%= @skill.user.price  %> € per Day</h2>
+<div class="containernewcontract">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="container-infosnewcontract">
+
+        <img src="<%= @skill.user.profile_image %>" alt="" class="imagenewcontract">
+        <p>SEND A BOOK REQUEST TO</p>
+        <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
+        <h2><%= @skill.name  %></h2>
+        <h2><%= @skill.user.price  %> € per Day</h2>
+      </div>
     </div>
-  </div>
-  
-  <div class="col-xs-12 col-sm-4">
-    <%= simple_form_for [@skill, @contract] do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :description %>
-    <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.button :submit %>
-    <% end %>
+
+    <div class="container-formnewcontract">
+      <div class="col-xs-12 col-sm-4">
+        <%= simple_form_for [@skill, @contract] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description %>
+        <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
+        <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
+        <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
