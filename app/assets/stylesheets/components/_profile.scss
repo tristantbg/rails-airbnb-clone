@@ -1,6 +1,3 @@
-img {
-  width: 300px;
-}
 .card {
   background: white;
   padding: 20px;
@@ -99,11 +96,12 @@ img {
   padding: 18px;
 }
 .kill-padding {
-  padding-left: 0px; 
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .padding-top {
   padding-top: 16px;
-} 
+}
 .filet-header {
   display: flex;
   justify-content: space-between;
@@ -114,4 +112,8 @@ img {
 .freelance-booking h4 {
   margin-top: 11px;
   text-align: center;
+}
+.map-large {
+  margin-left: 13px;
+  width: 700px;
 }
