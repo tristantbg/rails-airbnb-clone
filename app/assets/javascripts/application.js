@@ -40,8 +40,8 @@ $(document).ready(function() {
     });
     $(window).scroll(function(event) {
         var scrollTop = $(window).scrollTop();
-        var usersTop = $users.scrollTop();
-        if (scrollTop >= usersTop + 100) {
+        var usersTop = $users.offset().top;
+        if (scrollTop >= usersTop - 50) {
             $search.addClass('visible');
         } else {
             $search.removeClass('visible');
