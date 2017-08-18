@@ -1,8 +1,9 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
+<%= link_to root_path do %>
+  <%= image_tag "logo-brain.svg", class: "brand" %>
+<% end %>
 
-<%= image_tag "logo-brain.svg", class: "brand" %> 
-<h1>BRAIN2BRAIN</h1>
   <!--   Searchbar  -->
   <div id="search" class="form-group inline m0">
     <%= form_tag(users_path, method: :get, class: "form-inline") do %>
