@@ -1,14 +1,14 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <h1 class="m0">BRAIN2BRAIN</h1>
-  <% end %>
+<%= link_to root_path do %>
+  <%= image_tag "logo-brain.svg", class: "brand" %>
+<% end %>
 
   <!--   Searchbar  -->
   <div id="search" class="form-group inline m0">
     <%= form_tag(users_path, method: :get, class: "form-inline") do %>
-    <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
-    <%= text_field_tag 'address', nil, placeholder:'Where ?', class: "form-control", value: params[:address] %>
+    <%= text_field_tag 'skill', nil, placeholder: 'Which skill?', class: "form-control", value: params[:skill] %>
+    <%= text_field_tag 'address', nil, placeholder:'Where?', class: "form-control", value: params[:address] %>
     <%= submit_tag "Search", class: "form-control"%>
     <% end %>
   </div>
@@ -20,7 +20,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
           <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
           <%= link_to "Login", user_session_path %>
