@@ -1,16 +1,13 @@
 <div class="row">
   <div class="col-sm-5">
-    <p>SEND A BOOK REQUEST TO</p>
-
-   <div class="thumb">
-        <img src="<%= @skill.user.profile_image %>">
+    <div class="new-profile-image" style="background-image: url(<%= @skill.user.profile_image %>)">
+      <p>SEND A BOOK REQUEST TO</p>
+      <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
+      <h2><%= @skill.name  %></h2>
+      <h2><%= @skill.user.price  %> € per Day</h2>
     </div>
-
-
-
-    <h1><%= @skill.user.first_name.capitalize %> <%= @skill.user.last_name.capitalize %></h1>
-
   </div>
+  
   <div class="col-xs-12 col-sm-4">
     <%= simple_form_for [@skill, @contract] do |f| %>
     <%= f.error_notification %>
@@ -22,11 +19,9 @@
   </div>
 </div>
 
-
-
 <% content_for(:after_js) do  %>
-    <script type="text/javascript">
+  <script type="text/javascript">
     $(".datepicker").datepicker();
-    </script>
-  <% end %>
+  </script>
+<% end %>
 
