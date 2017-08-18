@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20170818102310) do
     t.integer "skill_id"
     t.text "description"
     t.boolean "status"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date "start_time"
+    t.date "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

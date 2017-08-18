@@ -3,6 +3,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-switch
 //= require banner
+//= require bootstrap-datepicker
 //= require_tree .
 $(document).ready(function() {
     $("[name='freelance-response']").bootstrapSwitch({

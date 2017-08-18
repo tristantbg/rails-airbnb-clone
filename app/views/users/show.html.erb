@@ -29,7 +29,7 @@
           </p>
         </div>
   <div class="row">
-    <div class="map-large"><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&sensor=false&maptype=roadmap&markers=color:red|#{@user.address}", width: "100%" %>
+    <div><%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x400&sensor=false&maptype=roadmap&markers=color:red|#{@user.address}", class: "map-large" %>
     </div>
   </div>
       </div>
