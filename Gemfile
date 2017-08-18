@@ -8,7 +8,6 @@ gem 'puma'
 gem 'rails', '5.1.3'
 gem 'redis'
 gem 'devise'
-
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
@@ -18,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem "geocoder"
 gem 'faker'
+gem 'bootstrap-datepicker-rails'
 
 #Front
 gem "bootstrap-switch-rails"
