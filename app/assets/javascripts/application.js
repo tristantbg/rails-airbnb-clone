@@ -49,7 +49,8 @@ $(document).ready(function() {
                 $search.removeClass('visible');
             }
         });
-    } else {
-        $search.addClass('visible');
-    }
+    } 
+    // else {
+    //     $search.addClass('visible');
+    // }
 });
