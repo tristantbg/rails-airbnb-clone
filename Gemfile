@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
+
 ruby '2.3.4'
 
 gem 'figaro'
@@ -18,6 +22,8 @@ gem 'uglifier'
 gem "geocoder"
 gem 'faker'
 gem 'bootstrap-datepicker-rails'
+
+
 
 #Front
 gem "bootstrap-switch-rails"

@@ -5,6 +5,7 @@
 //= require banner
 //= require bootstrap-datepicker
 //= require_tree .
+
 $(document).ready(function() {
     $("[name='freelance-response']").bootstrapSwitch({
         size: 'small',
@@ -32,6 +33,7 @@ $(document).ready(function() {
         $("#sent").hide();
         $("#received").show();
     });
+
     $search = $('#search');
     $users = $("#users-overview");
     $search.keypress(function(e) {
