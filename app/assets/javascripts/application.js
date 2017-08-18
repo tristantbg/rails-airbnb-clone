@@ -3,8 +3,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap-switch
 //= require banner
-//= require_tree
 //= require bootstrap-datepicker
+//= require_tree .
 
 $(document).ready(function() {
     $("[name='freelance-response']").bootstrapSwitch({
@@ -22,17 +22,36 @@ $(document).ready(function() {
         }
     });
     $('[data-target="sent"]').click(function(event) {
-      $('.tab').removeClass('active');
-      $(this).addClass('active');
-      $("#received").hide();
-      $("#sent").show();
+        $('.tab').removeClass('active');
+        $(this).addClass('active');
+        $("#received").hide();
+        $("#sent").show();
     });
     $('[data-target="received"]').click(function(event) {
-      $('.tab').removeClass('active');
-      $(this).addClass('active');
-      $("#sent").hide();
-      $("#received").show();
+        $('.tab').removeClass('active');
+        $(this).addClass('active');
+        $("#sent").hide();
+        $("#received").show();
     });
+
+    $search = $('#search');
+    $users = $("#users-overview");
+    $search.keypress(function(e) {
+        if (e.which == 13) {
+            $(this).closest('form').submit();
+        }
+    });
+    if ($users.length > 0) {
+        $(window).scroll(function(event) {
+            var scrollTop = $(window).scrollTop();
+            var usersTop = $users.offset().top;
+            if (scrollTop >= usersTop - 50) {
+                $search.addClass('visible');
+            } else {
+                $search.removeClass('visible');
+            }
+        });
+    } else {
+        $search.addClass('visible');
+    }
 });
-
-
