@@ -16,7 +16,7 @@
 
             <% if @user == current_user %>
             <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
-            <% elsif user_signed_in %>
+            <% elsif user_signed_in? %>
             <h4>Brain Available</h4>
             <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default", "data-toggle": "modal", "data-target": ".bs-example-modal-lg" %>
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
