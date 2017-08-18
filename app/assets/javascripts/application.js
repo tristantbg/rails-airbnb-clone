@@ -38,13 +38,17 @@ $(document).ready(function() {
             $(this).closest('form').submit();
         }
     });
-    $(window).scroll(function(event) {
-        var scrollTop = $(window).scrollTop();
-        var usersTop = $users.offset().top;
-        if (scrollTop >= usersTop - 50) {
-            $search.addClass('visible');
-        } else {
-            $search.removeClass('visible');
-        }
-    });
+    if ($users.length > 0) {
+        $(window).scroll(function(event) {
+            var scrollTop = $(window).scrollTop();
+            var usersTop = $users.offset().top;
+            if (scrollTop >= usersTop - 50) {
+                $search.addClass('visible');
+            } else {
+                $search.removeClass('visible');
+            }
+        });
+    } else {
+        $search.addClass('visible');
+    }
 });

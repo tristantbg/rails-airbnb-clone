@@ -4,14 +4,7 @@
     <%= image_tag "logo-brain.svg", class: "brand" %>
   <% end %>
 
-  <!--   Searchbar  -->
-  <div id="search" class="form-group inline m0">
-    <%= form_tag(users_path, method: :get, class: "form-inline") do %>
-    <%= text_field_tag 'skill', nil, placeholder: 'Which skill?', class: "form-control", value: params[:skill] %>
-    <%= text_field_tag 'address', nil, placeholder:'Where?', class: "form-control", value: params[:address] %>
-    <%= submit_tag "Search", class: "form-control"%>
-    <% end %>
-  </div>
+  <h1>BRAIN2BRAIN</h1>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -75,7 +68,7 @@
   </div>
 </div>
 
-<div id="search" class="form-group inline m0">
+  <div id="search" class="form-group inline m0">
     <%= form_tag(users_path, method: :get, class: "form-inline") do %>
     <%= submit_tag "Search", class: "form-control", id: 'submit' %>
     <%= text_field_tag 'skill', nil, placeholder: 'Which skill ?', class: "form-control", value: params[:skill] %>
