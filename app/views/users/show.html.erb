@@ -1,33 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3 kill-padding">
-      <div class="user-profile-image" style="background-image: url(<%= @user.profile_image %>)">   
+      <div class="user-profile-image" style="background-image: url(<%= @user.profile_image %>)">
       </div>
     </div>
     <div class="col-lg-offset-1 col-lg-7 kill-padding">
 
       <div class="filet">
         <div class="filet-header">
-          <div class="freelance-info">     
+          <div class="freelance-info">
             <h2><%= @user.first_name %> <%= @user.last_name %></h2>
             <h4><%= @user.skills.first.name %> Specialist <%= @user.price > 300 ? 'Senior' : 'Junior' %></h4>
             <p>Daily charges : <strong><%= @user.price %> €</strong></p>
           </div>
-          <div class="freelance-booking">   
+          <div class="freelance-booking">
             <h4>Brain Available</h4>
-            <% unless @user == current_user %>
+            <% if @user == current_user %>
+              <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
+            <% else %>
               <%= link_to 'Book this freelance', new_skill_contract_path(@skill), class: "btn btn-default" %>
-            <% end %>             
+            <% end %>
           </div>
-        </div>  
-    
+        </div>
+
         <div class="filet-body">
           <p class="text-justify padding-top">
           I am a full-stack developer with 9 years of experience working in startups. Scratching your own itch? Working on a startup project? Lots of ideas but frustrated that you can't code them? Confused with agencies' or freelances' quotes? No clue when a developer is talking? Time to learn to code with Le Wagon with a 9-week intensive and immersive bootcamp!
           </p>
         </div>
       </div>
-      
+
     </div>
   </div>
 
