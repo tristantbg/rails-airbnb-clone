@@ -9,10 +9,13 @@
   <div class="col-xs-12 col-sm-4">
     <%= simple_form_for [@skill, @contract] do |f| %>
     <%= f.error_notification %>
-    <%= f.input :description, :placeholder => "explain your message to your brain" %>
-    <%= f.input :start_time, :as => :datepicker %>
-    <%= f.input :end_time, :as => :datepicker %>
+    <%= f.input :description, :placeholder => "what do you have in brain ?" %>
+
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+
     <%= f.button :submit %>
+
     <% end %>
   </div>
 </div>
